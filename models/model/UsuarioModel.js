@@ -9,11 +9,11 @@ module.exports = (sequelize, DataType) =>{
         },
         nome:{
             type: DataType.STRING,
-            allowNull: false
+            allowNull: true
         },
         foto:{
             type: DataType.BLOB({length: 'long'}),
-            allowNull: false
+            allowNull: true
         }
     },
     {

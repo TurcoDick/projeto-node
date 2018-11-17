@@ -8,8 +8,8 @@ module.exports = (sequelize, DataType) => {
             unique: true
         },
         descricao: {
-            type: DataType.STRING,
-            allowNull: false
+            type: DataType.TEXT,
+            allowNull: true
         }
     },
     {

@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
-const AssuntoModel = require('../models/AssuntoModel');
-const UsuarioModel = require('../models/UsuarioModel');
-const PerguntaModel = require('../models/PerguntaModel');
-const RespostaModel = require('../models/RespostaModel');
+const AssuntoModel = require('../models/model/AssuntoModel');
+const UsuarioModel = require('../models/model/UsuarioModel');
+const PerguntaModel = require('../models/model/PerguntaModel');
+const RespostaModel = require('../models/model/RespostaModel');
 
 const sequelize = new Sequelize('stackoverflow_node','usuario_simples','123',
     {
@@ -35,7 +35,7 @@ pergunta.hasMany(resposta, {});
 
 
 // o {force: true} destroi tudo e re-constroi
-//sequelize.sync().then(() =>{console.log("Tabelas do banco de dados criado !!!")});
+//sequelize.sync({force: true}).then(() =>{console.log("Tabelas do banco de dados criado !!!")});
 
 
 

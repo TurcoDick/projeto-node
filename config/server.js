@@ -48,7 +48,7 @@ consign()
     .then('/config/datasource.js')
 
     // controlando o diretório app/models
-    .then("app/models")
+    //.then("app/models")
     .then("app/controllers")
     .into(app);
 

@@ -7,7 +7,8 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
             unique:true
         },
-        descricao: DataType.TEXT
+        descricao: DataType.TEXT,
+
     },
     {
         tableName: 'resposta'

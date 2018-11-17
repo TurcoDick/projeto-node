@@ -9,7 +9,7 @@ module.exports = (sequelize, DataType) => {
         },
         titulo:{
             type: DataType.STRING,
-            allowNull: false
+            allowNull: true
         }
     },{
         tableName: "assunto"
