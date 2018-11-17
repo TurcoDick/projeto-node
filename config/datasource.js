@@ -16,7 +16,7 @@ const sequelize = new Sequelize('stackoverflow_node','usuario_simples','123',
         }
     });
 
-//crio um objto Sequelize
+//crio um objeto Sequelize
 const usuario = UsuarioModel(sequelize, Sequelize);
 const assunto = AssuntoModel(sequelize, Sequelize);
 const pergunta = PerguntaModel(sequelize, Sequelize);
@@ -35,7 +35,7 @@ pergunta.hasMany(resposta, {});
 
 
 // o {force: true} destroi tudo e re-constroi
-sequelize.sync({force: true}).then(() =>{console.log("Tabelas do banco de dados criado !!!")});
+//sequelize.sync().then(() =>{console.log("Tabelas do banco de dados criado !!!")});
 
 
 

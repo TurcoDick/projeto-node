@@ -46,16 +46,15 @@ consign()
 
     // então devemos especificar o modulo correto, passando até a extensão
     .then('/config/datasource.js')
-    //.then('/config/config.js')
 
     // controlando o diretório app/models
-    //.then("app/models")
-    //.then("app/controllers")
+    .then("app/models")
+    .then("app/controllers")
     .into(app);
 
 // para dizer o que este modulo deve exportar para outro lugar devo fazer isso aqui
 module.exports = app;
 
-app.listen('7000', () => {
-    console.log("Servidor de pé na porta 7000")
+app.listen('3001', () => {
+    console.log("Servidor de pé na porta 3001")
 });
