@@ -2,6 +2,9 @@
 // agora quem toma conta das rotas é o express
 let express = require('express');
 
+// colocando o modulo que vai controlar a sessão
+let expressSession = require('express-session');
+
 // é o consign quem vai gerenciar as rotas agora
 let consign = require("consign");
 
@@ -17,6 +20,13 @@ let app = express();
 // para que o express consiga trabalhar em conjunto com o ejs devo mudar a tabela de propriedade do express
 // a propriedade em questão é
 app.set('view engine','ejs');
+
+// express-session
+app.use(expressSession({
+    secret:"noventaporcentosuordezporcentoinspiracao",
+    resave:false,
+    saveUninitialized: false
+}));
 
 // para dizer para o express qual é o diretorio onde se encontram minhas views faço assim
 app.set('views','./app/views');

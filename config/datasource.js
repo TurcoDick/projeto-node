@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
-const AssuntoModel = require('../models/model/AssuntoModel');
-const UsuarioModel = require('../models/model/UsuarioModel');
-const PerguntaModel = require('../models/model/PerguntaModel');
-const RespostaModel = require('../models/model/RespostaModel');
+const AssuntoModel = require('../app/models/model/AssuntoModel');
+const UsuarioModel = require('../app/models/model/UsuarioModel');
+const PerguntaModel = require('../app/models/model/PerguntaModel');
+const RespostaModel = require('../app/models/model/RespostaModel');
 
 const sequelize = new Sequelize('stackoverflow_node','usuario_simples','123',
     {
