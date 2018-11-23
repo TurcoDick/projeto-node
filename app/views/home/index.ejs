@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Portal de notícias</title>
+    <title>Poral de perguntas e respostas</title>
 
     <!-- JQuery -->
     <script src="js/jquery-2.2.1.js"></script>
@@ -20,11 +20,94 @@
 
 <body>
 
-<h1> Olha o home ai gente</h1>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-</body>
+            <img src="images/logo.png" />
+        </div>
 
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       id="pills-home-tab" href="login"
+                       role="tab" aria-controls="pills-home" aria-selected="true">
+                        Entrar
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="formulario_inclusao_usuario" class="nav-link" id="pills-profile-tab"
+                       role="tab" aria-controls="pills-contact" aria-selected="false"
+                       >
+                        Quero me cadastrar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab"
+                       href="#pills-contact" role="tab" aria-controls="pills-contact"
+                       aria-selected="false">
+                        Quem somos
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row">
+
+
+        <div class="row">
+            <% for(let i = 1; i < assuntos.length; i++) { %>
+            <div class="col-md-4">
+                <div class="noticia_wrapper">
+                    <span class="noticia_autor"><%= assuntos[i].titulo%></span>
+                    <!--<a href="noticia?id_noticia=<%=noticias[i].id_noticia%>" class="noticia_titulo"><%= noticias[i].titulo%></a>-->
+                    <!--<span class="noticia_data"><%= noticias[i].data_criacao%></span>-->
+                    <br />
+                    <p class="assunto_criado_em">
+                        <%= assuntos[i].createdAt%>
+                    </p>
+                    <p class="assunto_atualizado">
+                        <%= assuntos[i].updatedAt%>
+                    </p>
+                </div>
+            </div>
+            <% } %>
+        </div>
+
+        <div class="row ver_mais">
+            <button type="button"
+                    class="btn btn-default">
+                <a href="noticias.html">
+                    Ver todos os assuntos
+                </a>
+            </button>
+        </div>
+
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -14,6 +14,9 @@ module.exports = (sequelize, DataType) =>{
         foto:{
             type: DataType.BLOB({length: 'long'}),
             allowNull: true
+        },
+        password:{
+            type: DataType.STRING(32)
         }
     },
     {

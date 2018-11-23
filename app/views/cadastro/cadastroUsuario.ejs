@@ -24,8 +24,10 @@
     <h1>View cadastro usuario</h1>
 
     <form action="formulario_inclusao_usuario/create" method="post">
-        Nome completo: <input type="text" name="nome" value=""><br>
-        Foto: <input type="file" name="foto" value=""><br>
+        Nome completo: <input type="text" name="nome" value=""><br><br/>
+        Cadastre uma senha: <input type="password" name="password", placeholder="senha"><br><br/>
+        Foto: <input id="foto" type="file" name="foto" value=""><br> <br/>
+        <input type="image" content="foto">
         <input type="submit" value="Submit">
     </form>
 

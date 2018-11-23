@@ -10,7 +10,8 @@ module.exports.create = (request, response) =>{
 
     Usuario.create({
         nome: request.body.nome,
-        foto: request.body.foto
+        foto: request.body.foto,
+        password: request.body.password
     }).then(usuario =>{
         response.send(usuario)
     });
