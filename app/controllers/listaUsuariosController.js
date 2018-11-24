@@ -1,8 +1,8 @@
 module.exports.retornaUsuarios = (application, response) =>{
-    const datasource = require('../../config/datasource');
-    const Usuario = datasource.usuario;
+    let connection = application.config.dbConnection();
+    let usuarioModel = new application.app.models.UsuarioDAO(connection);
 
-    Usuario.findAll().then(usuarios => {
-       response.render('usuario/listaUsuario', {usuarios:usuarios});
+    usuarioModel.getUsuarios( function (error, result) {
+        response.render("usuario/listaUsuario", {usuarios: result});
     });
 };
