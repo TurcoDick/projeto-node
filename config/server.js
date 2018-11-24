@@ -55,10 +55,10 @@ consign()
     //.then('config')
 
     // então devemos especificar o modulo correto, passando até a extensão
-    .then('/config/datasource.js')
+    .then('config/dbConnection.js')
 
     // controlando o diretório app/models
-    //.then("app/models")
+    .then("app/models")
     .then("app/controllers")
     .into(app);
 

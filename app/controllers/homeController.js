@@ -1,19 +1,19 @@
 
 module.exports.index = (application, request, response) => {
-    const datasource = require('../../config/datasource');
-    const Assunto = datasource.assunto;
+    let connection = application.config.dbConnection();
+    let usuarioModel = new application.app.models.UsuarioModel(connection);
 
-    Assunto.findAll().then(assuntos => {
-        response.render("home/index", {assuntos:{assuntos}, validacao:{}});
+    usuarioModel.getUsuarios(function (error, result) {
+        response.render("usuario/listaUsuario", {usuarios:result});
     });
 };
 
 module.exports.autenticar = (application, request, response) => {
-    const datasource = require('../../config/datasource');
-    const Usuario = datasource.usuario;
+    let connection = application.config.dbConnection;
+    let usuarioModel = new application.app.models.UsuarioModel(connection);
 
     let dadosForm = request.body;
-    let password = dadosForm.password
+    let password = dadosForm.password;
 
     request.assert("email", "E-mail esta vazio").notEmpty();
     request.assert("password","Senha esta vazia").notEmpty();
@@ -25,30 +25,14 @@ module.exports.autenticar = (application, request, response) => {
         response.render("home/index", {validacao: erros, assuntos: {}});
         return;
     }
-    // try{
-    //     datasource.sequelize.query('SELECT * FROM  usuario where password like, ?',
-    //         {raw: true, replacement: ['password']}
-    //     )
-    //         .then(projects => {
-    //             console.log(projects)
-    //         });
-    //     console.log("Chegou aqui");
-    // }catch (err) {
-    //     console.log("A consulta não deu certo !!!!");
-    // }
 
-    try {
-        Usuario.findAll({
-            where:{
-                id:1
-            }
-        });
-        console.log(projects);
-
-    }catch (err) {
-        console.log("A consulta não deu certo !!!!");
-    }
-
+    usuarioModel.getUsurio(dadosForm.email, dadosForm.password, (error, result)=>{
+        console.log("RESULT: " +result);
+        console.log("ERRO: " + error);
+        console.log("EMAIL: " + dadosForm.email)
+        console.log("PASSWORD: "+ dadosForm.password);
+        response.render("usuario/listaUsuario", {usuario: result});
+    });
 
 
     console.log("Aquiiiii => "+ dadosForm);
