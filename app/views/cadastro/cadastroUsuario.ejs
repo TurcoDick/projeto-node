@@ -22,10 +22,25 @@
 <body>
 
     <h1>View cadastro usuario</h1>
+    <% if(validacao.length > 0) { %>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <strong>Atenção!</strong>
+                <ul>
+                    <% for(let i =0; i < validacao.length; i++) { %>
+                    <li><%= validacao[i].msg%></li>
+                    <% }%>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <% } %>
 
     <form action="formulario_inclusao_usuario/create" method="post">
-        Nome completo: <input type="text" name="nome" value=""><br><br/>
-        Cadastre uma senha: <input type="password" name="password", placeholder="senha"><br><br/>
+        Nome completo: <input type="text" id="nome" name="nome" value=""><br><br/>
+        Cadastre uma senha: <input type="password" name="password", placeholder="no minímo 8 caractéres e maxímo de 12 "><br><br/>
+        E-mail: <input type="email" name="email"><br> <br/>
         Foto: <input id="foto" type="file" name="foto" value=""><br> <br/>
         <input type="image" content="foto">
         <input type="submit" value="Submit">

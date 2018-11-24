@@ -5,7 +5,23 @@ module.exports = (application) =>{
     });
 
     application.post('/formulario_inclusao_usuario/create', (request, response) => {
-        application.app.controllers.cadastrarUsuarioController.create(request, response)
+
+        request.assert("nome","Nome é obrigatório").notEmpty();
+        request.assert("foto", "Foto é obrigatório").notEmpty();
+        request.assert("password","Password é obrigatório").notEmpty();
+        request.assert("password","Password é obrigatório").len(8);
+        request.assert("email", "E-mail é obrigatório").notEmpty();
+        request.assert("email", "E-mail invalido").isEmail;
+
+        let erros = request.validationErrors();
+
+        if(erros){
+            console.log("Aquiiiiii => "+erros);
+            response.render("usuario/listaUsuario", {validacao: erros});
+            return;
+        };
+
+        application.app.controllers.cadastrarUsuarioController.create(application, request, response)
     });
 
 };

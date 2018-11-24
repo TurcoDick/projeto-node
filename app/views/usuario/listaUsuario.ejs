@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Poral de perguntas e respostas</title>
+    <title>Lista de usuários</title>
 
     <!-- JQuery -->
     <script src="js/jquery-2.2.1.js"></script>
@@ -16,23 +16,14 @@
 
     <!-- favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
+
+
 </head>
 
 <body>
 
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
-        <% if(validacao.length > 0) {%>
-            <div class = "alert alert-danger">
-                <strong>Atenção!</strong>
-                <ul>
-                    <% for(let i =0; i < validacao.length; i++) {%>
-                        <li><%= validacao[i].msg  %></li>
-                    <% } %>
-                </ul>
-            </div>
-        <% } %>
-
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed"
                     data-toggle="collapse" data-target="#navbar"
@@ -48,28 +39,7 @@
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
-                <li class="nav-item">
-                    <a href="formulario_inclusao_usuario" class="nav-link" id="pills-profile-tab"
-                       role="tab" aria-controls="pills-contact" aria-selected="false"
-                       >
-                        Quero me cadastrar
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-contact-tab"
-                       href="#pills-contact" role="tab" aria-controls="pills-contact"
-                       aria-selected="false">
-                        Quem somos
-                    </a>
-                </li>
-                <form action="/autenticar" method="post">
-                    <input type="email" id="email" name="email" placeholder="E-mail">
-                    <input type="password" name="password", placeholder="Senha">
-                    <input type="submit" value="Entrar">
-                </form>
-            </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
@@ -85,18 +55,24 @@
 
 
         <div class="row">
-            <% for(let i = 1; i < assuntos.length; i++) { %>
+            <% for(let i = 1; i < usuarios.length; i++) { %>
             <div class="col-md-4">
                 <div class="noticia_wrapper">
-                    <span class="noticia_autor"><%= assuntos[i].titulo%></span>
-                    <!--<a href="noticia?id_noticia=<%=noticias[i].id_noticia%>" class="noticia_titulo"><%= noticias[i].titulo%></a>-->
-                    <!--<span class="noticia_data"><%= noticias[i].data_criacao%></span>-->
+                    <span class="usuario_nome"><%= usuarios[i].nome%></span>
+                    <span class="usuario_foto"><%= usuarios[i].foto%></span>
+
+                    <img src="<%= usuarios[i].foto%>" class="img-fluid" alt="Responsive image">
+
+
+
+
+
                     <br />
                     <p class="assunto_criado_em">
-                        <%= assuntos[i].createdAt%>
+                        <%= usuarios[i].createdAt%>
                     </p>
                     <p class="assunto_atualizado">
-                        <%= assuntos[i].updatedAt%>
+                        <%= usuarios[i].updatedAt%>
                     </p>
                 </div>
             </div>
@@ -106,7 +82,7 @@
         <div class="row ver_mais">
             <button type="button"
                     class="btn btn-default">
-                <a href="noticias.html">
+                <a href="usuarios.html">
                     Ver todos os assuntos
                 </a>
             </button>
@@ -118,5 +94,5 @@
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
             crossorigin="anonymous"></script>
 
-    </body>
+</body>
 </html>

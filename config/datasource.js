@@ -42,5 +42,6 @@ pergunta.hasMany(resposta, {});
 module.exports = {
     usuario,
     assunto,
-    pergunta
+    pergunta,
+    sequelize
 };
