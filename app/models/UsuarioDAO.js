@@ -1,3 +1,4 @@
+
 function UsuarioDAO(connection){
     this._connection = connection;
 };
@@ -18,10 +19,8 @@ UsuarioDAO.prototype.getUsuario = (email, password) =>{
     })
 };
 
-UsuarioDAO.prototype.insereUsuario = (usuario, callback) => {
-    let sql = "insert into usuario set ?";
-    this._connection.query(sql ,usuario, callback);
-    console.log(this._connection.query)
+UsuarioDAO.prototype.insereUsuario = function(usuario, callback) {
+    this._connection.query('insert into usuario set ?', usuario,callback);
 };
 
 UsuarioDAO.prototype.deleteUsuario = (usuarioId, callback) =>{
