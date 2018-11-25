@@ -40,11 +40,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 // este cara esta em deprecated
 app.use(expressValidator());
 
-// acho sensato a configuração do servidor ficar no arquivo server
-app.listen(3000, function () {
-    // para chamar a mensagem do modulo eu devo colocar parenteses na variavel
-    console.log("Servidor ON");
-});
+// // acho sensato a configuração do servidor ficar no arquivo server
+// app.listen(3000, function () {
+//     // para chamar a mensagem do modulo eu devo colocar parenteses na variavel
+//     console.log("Servidor ON");
+// });
 
 // desta forma o consign reconhece todos os arquivos da pasta
 // routes e inclui esses modulos dentro do modulo express (app)
@@ -65,6 +65,6 @@ consign()
 // para dizer o que este modulo deve exportar para outro lugar devo fazer isso aqui
 module.exports = app;
 
-app.listen('3001', () => {
-    console.log("Servidor de pé na porta 3001")
+app.listen('3005', () => {
+    console.log("Servidor de pé na porta 3005")
 });

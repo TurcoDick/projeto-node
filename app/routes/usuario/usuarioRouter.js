@@ -1,7 +1,14 @@
-
 module.exports = (application) =>{
+    application.get('/listaUsuarios', (request, response) =>{
+        application.app.controllers.usuario.usuarioController.retornaUsuarios(application, response);
+    });
+
+    application.get("/deleteUsuario", (request, response)=>{
+        application.app.controllers.usuario.usuarioController.delete(application, request, response);
+    });
+
     application.get('/formulario_inclusao_usuario', function(request, response) {
-        application.app.controllers.cadastrarUsuarioController.formulario_inclusao_usuario(application, request, response);
+        application.app.controllers.usuario.usuarioController.formulario_inclusao_usuario(application, request, response);
     });
 
     application.post('/formulario_inclusao_usuario/create', (request, response) => {
@@ -19,10 +26,6 @@ module.exports = (application) =>{
             response.render("usuario/listaUsuario", {validacao: erros});
             return;
         };
-        application.app.controllers.cadastrarUsuarioController.salvar(application, request, response);
+        application.app.controllers.usuario.usuarioController.salvar(application, request, response);
     });
-
 };
-
-
-
