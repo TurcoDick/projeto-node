@@ -10,9 +10,6 @@ module.exports.salvar = (application, request, response) =>{
 
 
     usuarioModel.insereUsuario(usuario ,function (error, result) {
-       console.log("RESULT: "+result);
-       console.log("ERRO: "+error);
-
        response.render("usuario/listaUsuario",{usuarios: result});
     });
 
