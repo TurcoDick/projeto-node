@@ -6,6 +6,9 @@ function UsuarioDAO(connection){
 };
 
 UsuarioDAO.prototype.autenticar = function(usuario){
+    let senhaCriptografada = crypto.createHash("md5").update(usuario.password).digest("hex");
+    usuario.password = senhaCriptografada;
+
     console.log()
 };
 

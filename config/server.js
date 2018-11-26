@@ -59,6 +59,6 @@ consign()
 // para dizer o que este modulo deve exportar para outro lugar devo fazer isso aqui
 module.exports = app;
 
-app.listen('3005', () => {
-    console.log("Servidor de pé na porta 3005")
+app.listen('3017', () => {
+    console.log("Servidor de pé na porta 3017")
 });

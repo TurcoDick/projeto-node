@@ -22,7 +22,10 @@ module.exports.autenticar = (application, request, response) => {
         }else if(result.length > 0){
             request.session.autorizado = true;
             application.app.controllers.usuario.usuarioController.retornaUsuarios(application, response);
+        }else{
+            request.session.autorizado = false;
         }
+
         if(request.session.autorizado){
             console.log("AUTORIZADO")
         }
