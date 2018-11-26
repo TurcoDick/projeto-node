@@ -40,12 +40,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 // este cara esta em deprecated
 app.use(expressValidator());
 
-// // acho sensato a configuração do servidor ficar no arquivo server
-// app.listen(3000, function () {
-//     // para chamar a mensagem do modulo eu devo colocar parenteses na variavel
-//     console.log("Servidor ON");
-// });
-
 // desta forma o consign reconhece todos os arquivos da pasta
 // routes e inclui esses modulos dentro do modulo express (app)
 consign()

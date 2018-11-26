@@ -3,7 +3,7 @@ module.exports = (application) =>{
         application.app.controllers.usuario.usuarioController.retornaUsuarios(application, response);
     });
 
-    application.get("/deleteUsuario", (request, response)=>{
+    application.get("/deleteUsuario:idusuario", (request, response)=>{
         application.app.controllers.usuario.usuarioController.delete(application, request, response);
     });
 

@@ -1,4 +1,6 @@
 
+let crypto = require('crypto');
+
 function UsuarioDAO(connection){
     this._connection = connection;
 };
@@ -12,35 +14,22 @@ UsuarioDAO.prototype.getUsuarios = function(callback) {
     this._connection.query(sql, callback);
 };
 
-UsuarioDAO.prototype.getUsuario = function(email, password, response){
-    this._connection.query('select * from `usuario` where `email` =? and `password` = ?', [email,password],
-        function(error, results, fields) {
-            if(error){
-                response.send(error)
-            }else if(results){
-                response.send(results);
-            }else if(fields){
-                response.send(fields);
-            };
-    });
+UsuarioDAO.prototype.getUsuario = function(application,email, password, request,response){
+    this._connection.query('select * from `usuario` where `email` =? and `password` = ?', [email,password]
+    );
 };
 
 UsuarioDAO.prototype.insereUsuario = function(usuario, callback) {
+    console.log(usuario.password);
+    let senhaCriptografada = crypto.createHash("md5").update(usuario.password).digest("hex");
+
+    usuario.password = senhaCriptografada;
+
     this._connection.query('insert into `usuario` set ?', usuario,callback);
 };
 
 UsuarioDAO.prototype.deleteUsuario = (request, callback) =>{
-    const { id } = request.params;
-    this._connection.query('DELETE FROM customer WHERE id = ?', [id],
-        function (error, results, fields) {
-            if(error){
-                response.send(error)
-            }else if(results){
-                response.send(results);
-            }else if(fields){
-                response.send(fields);
-            };
-        })
+    this._connection.query('delete from usuario set ?', + request.params.id);
 };
 
 

@@ -58,11 +58,11 @@
             <% for(let i = 1; i < usuarios.length; i++) { %>
             <div class="col-md-4">
                 <div class="noticia_wrapper">
-                    <span class="usuario_nome"><%= usuarios[i].nome%></span>
-                    <span class="usuario_foto"><%= usuarios[i].foto%></span>
+                    <span class="usuario_nome"><%= usuarios[i].nome%><br/></span>
 
-                    <img src="<%= usuarios[i].foto%>" class="img-fluid" alt="Responsive image">
-
+                    <span>
+                    <img src="<%=usuarios[i].foto%>" class="img-fluid" alt="Responsive image">
+                    </span>
 
 
 
